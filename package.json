@@ -3,7 +3,10 @@
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
-    "type": "module",
+    "type": "commonjs",
+    "scripts": {
+        "test": "jest"
+    },
     "devDependencies": {
         "jest": "^30.0.5"
     }
