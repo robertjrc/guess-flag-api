@@ -2,4 +2,6 @@ node_modules
 
 test/storage/**/*storage*/
 
+.env
+
 yarn.lock
