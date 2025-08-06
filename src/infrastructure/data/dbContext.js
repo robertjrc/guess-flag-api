@@ -1,4 +1,9 @@
-const { existsSync, mkdirSync, writeFileSync, readFileSync } = require("fs")
+const { 
+    existsSync,
+    mkdirSync,
+    writeFileSync,
+    readFileSync,
+    unlinkSync } = require("fs")
 const path = require("node:path")
 require("dotenv/config");
 
@@ -22,6 +27,11 @@ class InMemoryDb {
     async findAsync(session) {
         const group = `${this.#storage}/${session}.json`;
         return (!existsSync(group) ? null : JSON.parse(readFileSync(group)));
+    }
+
+    async removeAsync(session) {
+        const group = `${this.#storage}/${session}.json`;
+        if (existsSync(group)) unlinkSync(group);
     }
 }
 
