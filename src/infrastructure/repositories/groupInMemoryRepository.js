@@ -1,7 +1,7 @@
-const { InMemoryDb } = require("../data");
+const { InMemoryDb } = require("../data/dbContext");
 
 class GroupInMemoryRepository {
-    #db = new InMemoryDb();
+    #db = new InMemoryDb(); 
 
     async add(group) {
         await this.#db.saveChangesAsync(group.session, group);
@@ -14,6 +14,10 @@ class GroupInMemoryRepository {
 
     async saveAsync(session, group) {
         await this.#db.saveChangesAsync(session, group);
+    }
+
+    async removeAsync(session) {
+        await this.#db.removeAsync(session);
     }
 }
 
