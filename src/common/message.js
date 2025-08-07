@@ -1,9 +1,9 @@
 class Message {
-    static success(message, data) {
+    static success(message, value) {
         return {
             success: true,
             message,
-            data
+            value
         }
     }
 
