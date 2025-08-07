@@ -52,8 +52,6 @@ class Group {
             }
         } while (alternatives.length <= 3);
 
-        console.log(alternatives);
-
         const shuffleAlternatives = (input) => {
             for (let i = input.length - 1; i > 0; i--) {
                 const j = RNG(0, i + 1);
