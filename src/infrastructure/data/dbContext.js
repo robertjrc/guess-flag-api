@@ -20,17 +20,17 @@ class InMemoryDb {
         if (!existsSync(this.#storage)) mkdirSync(this.#storage);
     }
 
-    async saveChangesAsync(session, data) {
-        writeFileSync(`${this.#storage}/${session}.json`, JSON.stringify(data, null, 2));
+    async saveChangesAsync(id, data) {
+        writeFileSync(`${this.#storage}/${id}.json`, JSON.stringify(data, null, 2));
     }
 
-    async findAsync(session) {
-        const group = `${this.#storage}/${session}.json`;
+    async findAsync(id) {
+        const group = `${this.#storage}/${id}.json`;
         return (!existsSync(group) ? null : JSON.parse(readFileSync(group)));
     }
 
-    async removeAsync(session) {
-        const group = `${this.#storage}/${session}.json`;
+    async removeAsync(id) {
+        const group = `${this.#storage}/${id}.json`;
         if (existsSync(group)) unlinkSync(group);
     }
 }

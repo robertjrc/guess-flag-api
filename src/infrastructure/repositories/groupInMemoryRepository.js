@@ -3,21 +3,17 @@ const { InMemoryDb } = require("../data/dbContext");
 class GroupInMemoryRepository {
     #db = new InMemoryDb(); 
 
-    async add(group) {
-        await this.#db.saveChangesAsync(group.session, group);
-    }
-
-    async getBySession(session) {
-        const group = await this.#db.findAsync(session);
+    async getBySession(id) {
+        const group = await this.#db.findAsync(id);
         return (!group) ? null : group;
     }
 
-    async saveAsync(session, group) {
-        await this.#db.saveChangesAsync(session, group);
+    async saveAsync(id, group) {
+        await this.#db.saveChangesAsync(id, group);
     }
 
-    async removeAsync(session) {
-        await this.#db.removeAsync(session);
+    async removeAsync(id) {
+        await this.#db.removeAsync(id);
     }
 }
 

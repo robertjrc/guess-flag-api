@@ -2,9 +2,8 @@ const { easy, medium, hard } = require("../../infrastructure/seeds/flags.json");
 const { RNG } = require("../../application/utils/RNG")
 
 class Group {
-    constructor(session, name) {
-        this.status = true
-        this.session = session
+    constructor(id, name) {
+        this.id = id
         this.name = name
         this.players = []
         this.easy = easy
@@ -14,10 +13,12 @@ class Group {
             flag_name: null,
             flag_img: null,
             flags_difficulty: null,
-            alternatives: []
+            alternatives: [],
+            message_id: null
         }
         this.moves = 0
         this.level = 1
+        this.status = true
     }
 
     static difficultyGenerator() {

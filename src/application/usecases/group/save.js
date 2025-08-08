@@ -5,8 +5,8 @@ class GroupSaveChangesUseCase {
         this.#_repository = repository;
     }
 
-    async execute(session, data) {
-        await this.#_repository.saveAsync(session, data);
+    async execute(id, data) {
+        await this.#_repository.saveAsync(id, data);
     }
 }
 
