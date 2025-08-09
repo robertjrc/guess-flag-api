@@ -1,12 +1,9 @@
 const { PlayerCreateUseCase } = require("../../application/usecases/player/create");
 const { Player } = require("../../domain/entities/Player");
-const { PlayerInMemoryRepository } = require("../../infrastructure/repositories/playerInMemoryRepository");
 
 class PlayerController {
-    #repository = new PlayerInMemoryRepository();
-
     create(request) {
-        return new PlayerCreateUseCase(this.#repository).execute(request);
+        return new PlayerCreateUseCase().execute(request);
     }
 
     won(player, difficultyLevel) {
