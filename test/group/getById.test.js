@@ -1,4 +1,5 @@
 const { GroupGetByIdUseCase } = require("../../src/application/usecases/group/getById");
+const { GroupInMemoryRepository } = require("../../src/infrastructure/repositories/groupInMemoryRepository");
 
 const id = "930202030"
 
