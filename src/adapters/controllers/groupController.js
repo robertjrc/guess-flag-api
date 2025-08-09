@@ -4,6 +4,7 @@ const { GroupFlagsCheckUseCase } = require("../../application/usecases/group/fla
 const { GroupGetByIdUseCase } = require("../../application/usecases/group/getById");
 const { GroupLevelSwitchUseCase } = require("../../application/usecases/group/levelSwitch");
 const { GroupOverallPlayersScore } = require("../../application/usecases/group/overallPlayersScore");
+const { GroupRemoveFlagUseCase } = require("../../application/usecases/group/removeFlag");
 const { GroupResetUseCase } = require("../../application/usecases/group/reset");
 const { GroupSaveChangesUseCase } = require("../../application/usecases/group/save");
 const { GroupSetFlagUseCase } = require("../../application/usecases/group/setFlag");
@@ -25,6 +26,10 @@ class GroupController {
     async deleteById(id) {
         const deleteGroupById = new GroupDeleteByIdUseCase(this.#inMemoryRespository);
         await deleteGroupById.execute(id);
+    }
+
+    removeFlag(flags, currentFlag) {
+        return new GroupRemoveFlagUseCase().execute(flags, currentFlag);
     }
 
     reset(request) {
