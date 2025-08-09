@@ -1,11 +1,14 @@
-const { 
+const {
     existsSync,
     mkdirSync,
     writeFileSync,
     readFileSync,
     unlinkSync } = require("fs")
 const path = require("node:path")
-require("dotenv/config");
+require("dotenv").config({
+    path: path.join(__dirname, "..", "..", "..", ".env"),
+    quiet: true
+});
 
 class InMemoryDb {
     #storage;
