@@ -30,8 +30,8 @@ class GroupController {
         return new GroupFlagsCheckUseCase().execute(flags, difficulty);
     }
 
-    levelSwitch() {
-        return new GroupLevelSwitchUseCase().execute();
+    levelSwitch(level) {
+        return new GroupLevelSwitchUseCase().execute(level);
     }
 
     setFlag(group) {
