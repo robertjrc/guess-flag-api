@@ -3,6 +3,7 @@ const { GroupDeleteByIdUseCase } = require("../../application/usecases/group/del
 const { GroupFlagsCheckUseCase } = require("../../application/usecases/group/flagsCheck");
 const { GroupGetByIdUseCase } = require("../../application/usecases/group/getById");
 const { GroupLevelSwitchUseCase } = require("../../application/usecases/group/levelSwitch");
+const { GroupOverallPlayersScore } = require("../../application/usecases/group/overallPlayersScore");
 const { GroupSaveChangesUseCase } = require("../../application/usecases/group/save");
 const { GroupSetFlagUseCase } = require("../../application/usecases/group/setFlag");
 const { GroupInMemoryRepository } = require("../../infrastructure/repositories/groupInMemoryRepository");
@@ -35,6 +36,10 @@ class GroupController {
 
     setFlag(group) {
         return new GroupSetFlagUseCase().execute(group);
+    }
+
+    overallScore(players) {
+        return new GroupOverallPlayersScore().execute(players);
     }
 
     async save(id, data) {
