@@ -1,8 +1,10 @@
 const { GroupController } = require("./src/adapters/controllers/groupController");
+const { PlayerController } = require("./src/adapters/controllers/playerController");
 
 class GuessFlag {
     constructor() {
-        this.group = new GroupController();
+        this.Group = new GroupController();
+        this.Player = new PlayerController();
     };
 }
 
