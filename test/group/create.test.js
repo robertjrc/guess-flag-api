@@ -16,7 +16,7 @@ test("should create a group", async () => {
     const response = await createGroupUseCase.execute(data);
 
     const groupSaveUsecase = new GroupSaveChangesUseCase(repository);
-    await groupSaveUsecase.execute(id, response.value);
+    await groupSaveUsecase.execute(id, response.data);
 
     expect(response.success).toBe(true);
 });
