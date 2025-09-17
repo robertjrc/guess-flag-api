@@ -1,6 +1,6 @@
 {
-    "name": "guessFlag",
-    "version": "0.6.0",
+    "name": "guess-flag",
+    "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
     "type": "commonjs",
