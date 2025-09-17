@@ -1,21 +1,17 @@
-const {
-    existsSync,
-    mkdirSync,
-    writeFileSync,
-    readFileSync,
-    unlinkSync } = require("fs")
-const path = require("node:path")
-require("dotenv").config({
-    path: path.join(__dirname, "..", "..", "..", ".env"),
-    quiet: true
-});
+const fs = require("node:fs/promises");
+const { existsSync, mkdirSync } = require("node:fs");
+const { join } = require("node:path");
+
+require("dotenv").config({ quiet: true });
 
 class InMemoryDb {
     #storage;
 
     constructor() {
-        this.#storage = path.join(
-            process.cwd(), `${process.env.INMEMORY_DATA_SOURCE}/guessFlag_storage`);
+        this.#storage = join(
+            process.cwd(),
+            `${process.env.STORAGE_PATH}/flag_storage`
+        );
         this.#init();
     }
 
@@ -24,7 +20,7 @@ class InMemoryDb {
     }
 
     async saveChangesAsync(id, data) {
-        writeFileSync(`${this.#storage}/${id}.json`, JSON.stringify(data, null, 2));
+        await fs.writeFile(`${this.#storage}/${id}.json`, JSON.stringify(data, null, 2));
     }
 
     async findAsync(id) {
@@ -34,7 +30,7 @@ class InMemoryDb {
 
     async removeAsync(id) {
         const group = `${this.#storage}/${id}.json`;
-        if (existsSync(group)) unlinkSync(group);
+        if (existsSync(group)) await fs.unlink(group);
     }
 }
 
