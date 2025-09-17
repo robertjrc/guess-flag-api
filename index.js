@@ -1,4 +1,4 @@
 module.exports = {
     Group: require("./src/adapters/controllers/groupController"),
-    Member: require("./src/adapters/controllers/playerController")
+    Player: require("./src/adapters/controllers/playerController")
 }
