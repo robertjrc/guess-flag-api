@@ -3,7 +3,7 @@ class Message {
         return {
             success: true,
             message,
-            value
+            data: value
         }
     }
 
