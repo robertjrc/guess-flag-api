@@ -25,7 +25,7 @@ class InMemoryDb {
 
     async findAsync(id) {
         const group = `${this.#storage}/${id}.json`;
-        return (!existsSync(group) ? null : JSON.parse(readFileSync(group)));
+        return (!existsSync(group) ? null : JSON.parse(await fs.readFile(group)));
     }
 
     async removeAsync(id) {
