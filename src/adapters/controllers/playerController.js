@@ -15,4 +15,4 @@ class PlayerController {
     }
 }
 
-module.exports = { PlayerController };
+module.exports = new PlayerController();
