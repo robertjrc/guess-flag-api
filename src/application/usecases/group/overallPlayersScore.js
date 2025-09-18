@@ -1,18 +1,21 @@
 class GroupOverallPlayersScore {
     execute(players) {
-        let text = "*PONTUAÇÃO GERAL*\n";
+        let text = "┌──⊣〔 *PONTUAÇÃO* 〕\n";
+        text += "│\n"
 
         players.sort((x, y) => {
             return x.score - y.score;
         }).reverse();
 
         for (let player of players) {
-            text += `\n*${player.name}\n`
-            text += "╰─ ";
-            text += `🔥 ${player.score} pontos\n`;
-            text += `       🎯 ${((player.hits / player.moves) * 100).toFixed(0)}% de certos`;
-            text += "\n";
+            text += `├ 👤 *${player.name}*\n`
+            text += `│  ├ pontos: *${player.score}*\n`;
+            text += `│  └ acerto: *${((player.hits / player.moves) * 100).toFixed(0)}%*\n`;
+            text += "│\n";
         }
+
+        text += "│\n";
+        text += "└──⊣";
 
         return text;
     }
