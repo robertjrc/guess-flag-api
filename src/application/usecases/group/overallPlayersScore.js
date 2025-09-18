@@ -14,7 +14,6 @@ class GroupOverallPlayersScore {
             text += "│\n";
         }
 
-        text += "│\n";
         text += "└──⊣";
 
         return text;
